@@ -24,7 +24,17 @@
 
 namespace SPIN.Devices.Abstractions;
 
+/// <summary>
+/// Interface for temperature reading devices such as BMP280, BME280,
+/// BMP388 and CPU temperature sensor
+/// </summary>
 public interface ITemperatureDevice
 {
+    /// <summary>
+    /// If device can read the temperature, then the temperature is read. <br />
+    /// If device is unable to read the temperature then an exception will be thrown.
+    /// </summary>
+    /// <param name="cancellationToken">Cancellation token to be passed down</param>
+    /// <returns>Temperature read</returns>
     public Task<Temperature> GetTemperatureAsync(CancellationToken cancellationToken = default);
 }
